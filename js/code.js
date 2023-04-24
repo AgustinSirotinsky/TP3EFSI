@@ -8,6 +8,8 @@ function ConseguirProducto(){
             document.getElementById("valores").innerHTML=""
             valores = document.getElementById("valores");
             res.products.forEach(product => {
+                if (product.deletedOn=false){}
+                else{
                 item=document.createElement("li")
                 // item.innerHTML=`<a href="DetalleProducto.html?id=${product.id}" target="_blank">${product.title}</a>`
                 item.innerHTML=
@@ -17,14 +19,17 @@ function ConseguirProducto(){
                 <div class="card-body">
                     <h5 class="card-title">${product.title}</h5>
                     <p class="card-text">${product.description}</p>
-                    <a href="DetalleProducto.html?id=${product.id}" target="_blank" class="btn btn-primary">${product.title}</a><hr>
-                    <button type="button" class="btn btn-danger" onclick="EliminarProducto(${product.id})">Eliminar producto</button>
+                    <a href="DetalleProducto.html?id=${product.id}" target="_blank" class="btn btn-primary">View info</a><hr>
+                    <button type="button" class="btn btn-danger" onclick="EliminarProducto(${product.id})">Delete product</button>
                 </div>
                 </div>
                 `
                 valores.appendChild(item)
+                
+                }
             })
         })
+
         .catch(err => console.error("error", err))
     console.log("Fin consulta - fetch")
 }
