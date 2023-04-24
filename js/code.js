@@ -25,7 +25,6 @@ function ConseguirProducto(){
                 </div>
                 `
                 valores.appendChild(item)
-                
                 }
             })
         })
@@ -33,6 +32,32 @@ function ConseguirProducto(){
         .catch(err => console.error("error", err))
     console.log("Fin consulta - fetch")
 }
+
+function AgregarProducto(){
+    console.log("Recibi Agregar producto")
+    var title=document.getElementById("title").value
+    var price=document.getElementById("price").value
+    var description=document.getElementById("description").value
+    console.log(`titulo: ${title}, precio: ${price}, descripcion: ${description}`)
+    if(title==""||price==""||description==""){
+        alert("¡Debe llenar todos los campos!")
+    }
+    else{
+        fetch('https://dummyjson.com/products/add', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+            title: title,
+            description: description,
+            price: price
+  })
+})
+.then(res => res.json())
+.then(console.log);
+window.location.href = "index.html";
+    }
+}
+
 function EliminarProducto(id){
 console.log(`Recibi eliminar producto ${id}`)
 fetch(`https://dummyjson.com/products/${id}`, {
