@@ -5,3 +5,9 @@
 .resultado{
     text-align: center
 }
+body{
+    background-color: #920000;
+    background-image: url("https://marketplace.canva.com/EAEK4dC2olw/1/0/1600w/canva-arco%C3%ADris-gradiente-rosa-y-naranja-fondo-virtual-para-zoom-c3PYha1JI9M.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+}
