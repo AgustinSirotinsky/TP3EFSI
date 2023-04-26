@@ -33,6 +33,41 @@ function ConseguirProducto(){
     console.log("Fin consulta - fetch")
 }
 
+function IniciarSesion() {
+    var user=document.getElementById("user").value
+    var password=document.getElementById("password").value
+    if(user==""||password==""){
+        alert("¡Debe llenar todos los campos!")
+    }
+    else {
+    fetch('https://dummyjson.com/auth/login', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      
+      username: user,
+      password: password,
+    })
+  })
+  .then(res => res.json())
+  .then(res=> {
+    console.log(res)
+    const usuarioValido = new Boolean(false);
+    for (var i=1;i<30;i++){
+        if(i==res.id){
+            usuarioValido=true
+        }
+    }
+    if (usuarioValido==false){
+        alert("El usuario o contraseña son incorrectos")
+    }
+    //cambio de pantalla
+    else{
+        window.location.href="user.html"
+    }
+  });
+}}
+
 function AgregarProducto(){
     console.log("Recibi Agregar producto")
     var title=document.getElementById("title").value
@@ -81,3 +116,35 @@ fetch(`https://dummyjson.com/products/${id}`, {
 //         .catch(err => console.error("error", err))
 //     console.log("Fin consulta - fetch")
 // })();
+
+var input = document.getElementById("title");
+input.addEventListener("keypress", function(event) {
+if (event.key === "Enter") {
+event.preventDefault();
+document.getElementById("boton").click();
+}
+});
+
+var input = document.getElementById("title");
+input.addEventListener("keypress", function(event) {
+if (event.key === "Enter") {
+event.preventDefault();
+document.getElementById("boton").click();
+}
+});
+
+var input = document.getElementById("user");
+input.addEventListener("keypress", function(event) {
+if (event.key === "Enter") {
+event.preventDefault();
+document.getElementById("botonLogin").click();
+}
+});
+
+var input = document.getElementById("password");
+input.addEventListener("keypress", function(event) {
+if (event.key === "Enter") {
+event.preventDefault();
+document.getElementById("botonLogin").click();
+}
+});

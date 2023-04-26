@@ -8,23 +8,19 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <nav class="navbar">
-    <form class="form-inline">
+    <form class="formulario">
       <input type="text" class="form-control" placeholder="Search product..." id="title">
-      <button type="button" class="btn btn-info" onclick="ConseguirProducto()" id="boton">Search</button>   
-      <a href="agregarProducto.html" target="_blank" class="btn btn-primary">Add product</a>
-
-      <script>
-        var input = document.getElementById("title");
-        input.addEventListener("keypress", function(event) {
-          if (event.key === "Enter") {
-            event.preventDefault();
-            document.getElementById("boton").click();
-          }
-        });
-        </script>
-  </nav>
-
+      <div class="card">
+        <div class="card-body">
+          <input type="text" class="form-control" placeholder="User" id="user">
+          <input type="text" class="form-control" placeholder="Password" id="password">
+          <button type="button" class="btn btn-info" onclick="IniciarSesion()" id="botonLogin">Search</button>   
+        </div>
+      </div>
+    </form>
+    <button type="button" class="btn btn-info" onclick="ConseguirProducto()" id="boton">Search</button>   
+    <a href="agregarProducto.html" target="_blank" class="btn btn-primary">Add product</a>
+      
     <ul id="valores"></ul>
     
     <script src="js/code.js"></script>
