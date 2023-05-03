@@ -53,7 +53,7 @@ function IniciarSesion() {
   .then(res => res.json())
   .then(res=> {
     console.log(res)
-    const usuarioValido = new Boolean(false);
+    let usuarioValido = new Boolean(false);
     for (var i=1;i<30;i++){
         if(i==res.id){
             usuarioValido=true
@@ -65,6 +65,7 @@ function IniciarSesion() {
     //cambio de pantalla
     else{
         window.location.href="user.html"
+        console.log("usuario y contraseña correctos")
     }
   });
 }}
