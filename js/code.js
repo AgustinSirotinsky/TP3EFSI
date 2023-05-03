@@ -20,7 +20,8 @@ function ConseguirProducto(){
                     <h5 class="card-title">${product.title}</h5>
                     <p class="card-text">${product.description}</p>
                     <a href="DetalleProducto.html?id=${product.id}" target="_blank" class="btn btn-primary">View info</a><hr>
-                    <button type="button" class="btn btn-danger" onclick="EliminarProducto(${product.id})">Delete product</button>
+                    <button type="button" class="btn btn-danger" onclick="EliminarProducto(${product.id})">Delete product</button><hr>
+                    <a href="actualizarProducto.html?id=${product.id}" target="_blank" class="btn btn-warning">Update product</a><hr>
                 </div>
                 </div>
                 `
